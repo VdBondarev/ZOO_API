@@ -11,3 +11,5 @@ databaseChangeLog:
       file: db/changelog/changes/05-insert-user-admin.yaml
   - include:
       file: db/changelog/changes/06-insert-to-user_roles-admin.yaml
+  - include:
+      file: db/changelog/changes/07-create-animals-table.yaml

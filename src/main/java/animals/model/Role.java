@@ -1,5 +1,6 @@
 package animals.model;
 
+import animals.model.enums.RoleName;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -33,24 +34,5 @@ public class Role implements GrantedAuthority {
     @Override
     public String getAuthority() {
         return name.name();
-    }
-
-    public enum RoleName {
-        USER,
-        ADMIN;
-
-        public static RoleName fromString(String value) {
-            for (RoleName role : RoleName.values()) {
-                if (role.name().equalsIgnoreCase(value)) {
-                    return role;
-                }
-            }
-            throw new IllegalArgumentException("Can't find a role " + value);
-        }
-
-        @Override
-        public String toString() {
-            return name();
-        }
     }
 }

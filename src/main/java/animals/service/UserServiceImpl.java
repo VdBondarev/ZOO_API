@@ -8,6 +8,7 @@ import animals.dto.UserResponseDto;
 import animals.mapper.UserMapper;
 import animals.model.Role;
 import animals.model.User;
+import animals.model.enums.RoleName;
 import animals.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Set;
@@ -44,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto updateUserRole(Long id, String roleName) {
-        Role.RoleName.fromString(roleName); // just a check if role exists
+        RoleName.fromString(roleName); // just a check if role exists
         User user = userRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException(
                         "User with passed id doesn't exist, id: " + id));
@@ -77,6 +78,6 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(Role::getName)
                 .toList()
-                .contains(Role.RoleName.fromString(roleName));
+                .contains(RoleName.fromString(roleName));
     }
 }
