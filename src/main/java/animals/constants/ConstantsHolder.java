@@ -8,5 +8,4 @@ public interface ConstantsHolder {
     String BEARER = "Bearer";
     int TOKEN_START = 7;
     String JWT = "JWT";
-    int ONE = 1;
 }

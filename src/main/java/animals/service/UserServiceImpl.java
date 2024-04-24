@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto updateUserRole(Long id, String roleName) {
+        Role.RoleName.fromString(roleName); // just a check if role exists
         User user = userRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException(
                         "User with passed id doesn't exist, id: " + id));

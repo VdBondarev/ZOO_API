@@ -27,10 +27,7 @@ public class UserController {
     }
 
     @Operation(summary = "Update user's roles",
-            description = """
-                    Endpoint for updating the user's role.
-                    Allowed for admins only
-                    """)
+            description = "Allowed for admins only")
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public UserResponseDto updateUserRole(

@@ -1,7 +1,5 @@
 package animals.model;
 
-import static animals.constants.ConstantsHolder.ONE;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -42,17 +40,12 @@ public class Role implements GrantedAuthority {
         ADMIN;
 
         public static RoleName fromString(String value) {
-            boolean equalsSubstring;
             for (RoleName role : RoleName.values()) {
-                equalsSubstring =
-                        role.name()
-                                .substring(role.name().indexOf("_") + ONE)
-                                .equalsIgnoreCase(value);
-                if (role.name().equalsIgnoreCase(value) || equalsSubstring) {
+                if (role.name().equalsIgnoreCase(value)) {
                     return role;
                 }
             }
-            throw new IllegalArgumentException("Unknown enum value: " + value);
+            throw new IllegalArgumentException("Can't find a role " + value);
         }
 
         @Override
