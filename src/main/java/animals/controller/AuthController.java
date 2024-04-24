@@ -3,7 +3,7 @@ package animals.controller;
 import animals.dto.UserLoginRequestDto;
 import animals.dto.UserLoginResponseDto;
 import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserRegistrationResponseDto;
+import animals.dto.UserResponseDto;
 import animals.security.AuthenticationService;
 import animals.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,7 +25,7 @@ public class AuthController {
     private final UserService userService;
 
     @GetMapping("/login")
-    @Operation(summary = "Login for signed-up users only (but not authenticated)")
+    @Operation(summary = "Login for signed-up users only")
     public UserLoginResponseDto login(
             @RequestBody @Valid UserLoginRequestDto requestDto) {
         return authenticationService.login(requestDto);
@@ -34,7 +34,7 @@ public class AuthController {
     @PostMapping("/register")
     @Operation(summary = "Registration for any user")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserRegistrationResponseDto register(
+    public UserResponseDto register(
             @RequestBody @Valid UserRegistrationRequestDto requestDto) {
         return userService.register(requestDto);
     }

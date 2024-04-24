@@ -1,10 +1,12 @@
 package animals.constants;
 
 public interface ConstantsHolder {
-    int ONE = 1;
-    int TOKEN_START = 7;
     String AUTHORIZATION = "Authorization";
-    String BEARER = "Bearer";
     String BEARER_AUTH = "BearerAuth";
+    String ROLE_ADMIN = "ADMIN";
+    String ROLE_USER = "USER";
+    String BEARER = "Bearer";
+    int TOKEN_START = 7;
     String JWT = "JWT";
+    int ONE = 1;
 }
