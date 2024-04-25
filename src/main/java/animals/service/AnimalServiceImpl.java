@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class AnimalServiceImpl implements AnimalService {
     private final FileParserStrategy parserStrategy;
     private final AnimalMapper animalMapper;
 
+    @Transactional
     @Override
     public List<AnimalResponseDto> create(MultipartFile file) {
         String fileType = getFileType(file);
@@ -49,6 +51,6 @@ public class AnimalServiceImpl implements AnimalService {
                     For example, CSV or XML.
                     """;
         }
-        return splitByDot[splitByDot.length - 1];
+        return splitByDot[splitByDot.length - ONE];
     }
 }

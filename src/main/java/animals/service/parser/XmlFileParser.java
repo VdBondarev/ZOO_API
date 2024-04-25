@@ -1,6 +1,6 @@
 package animals.service.parser;
 
-import static animals.constants.ConstantsHolder.CSV;
+import static animals.constants.ConstantsHolder.XML;
 
 import animals.model.Animal;
 import animals.service.category.AnimalCategoryStrategy;
@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class CsvFileParser implements FileParser {
+public class XmlFileParser implements FileParser {
     private final AnimalCategoryStrategy categoryStrategy;
 
     @Override
     public List<Animal> parse(List<String[]> animalsRecords) {
-        animalsRecords.remove(0); // remove the first record that contains description of a file
         List<Animal> animals = new ArrayList<>();
         for (String[] animalsRecord : animalsRecords) {
             try {
@@ -35,7 +34,6 @@ public class CsvFileParser implements FileParser {
                  * Sex is not male of female
                  * weight or cost <= 0
                  */
-                continue;
             }
         }
         return animals;
@@ -43,6 +41,6 @@ public class CsvFileParser implements FileParser {
 
     @Override
     public boolean isApplicable(String fileType) {
-        return fileType.equalsIgnoreCase(CSV);
+        return fileType.equalsIgnoreCase(XML);
     }
 }
