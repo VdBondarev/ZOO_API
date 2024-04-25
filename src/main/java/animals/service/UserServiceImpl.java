@@ -3,8 +3,8 @@ package animals.service;
 import static animals.constants.ConstantsHolder.ROLE_ADMIN;
 import static animals.constants.ConstantsHolder.ROLE_USER;
 
-import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserRegistrationRequestDto;
+import animals.dto.user.UserResponseDto;
 import animals.mapper.UserMapper;
 import animals.model.Role;
 import animals.model.User;

@@ -1,9 +1,9 @@
 package animals.controller;
 
-import animals.dto.UserLoginRequestDto;
-import animals.dto.UserLoginResponseDto;
-import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserLoginRequestDto;
+import animals.dto.user.UserLoginResponseDto;
+import animals.dto.user.UserRegistrationRequestDto;
+import animals.dto.user.UserResponseDto;
 import animals.security.AuthenticationService;
 import animals.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;

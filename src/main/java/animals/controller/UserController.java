@@ -1,6 +1,6 @@
 package animals.controller;
 
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserResponseDto;
 import animals.model.User;
 import animals.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;

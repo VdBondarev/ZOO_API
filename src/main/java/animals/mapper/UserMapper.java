@@ -1,8 +1,8 @@
 package animals.mapper;
 
 import animals.config.MapperConfig;
-import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserRegistrationRequestDto;
+import animals.dto.user.UserResponseDto;
 import animals.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

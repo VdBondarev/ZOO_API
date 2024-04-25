@@ -1,7 +1,7 @@
 package animals.security;
 
-import animals.dto.UserLoginRequestDto;
-import animals.dto.UserLoginResponseDto;
+import animals.dto.user.UserLoginRequestDto;
+import animals.dto.user.UserLoginResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

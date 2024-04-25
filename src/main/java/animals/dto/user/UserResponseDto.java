@@ -1,4 +1,4 @@
-package animals.dto;
+package animals.dto.user;
 
 public record UserResponseDto(
         Long id,
