@@ -4,6 +4,7 @@ import animals.dto.user.UserResponseDto;
 import animals.model.User;
 import animals.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "Users controller",
+        description = "Endpoints for managing users")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
