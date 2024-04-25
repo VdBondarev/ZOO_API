@@ -31,7 +31,7 @@ public class WeightBetweenSpecificationProvider
                             + params.size());
         }
         if (weightFrom.compareTo(weightTo) >= ZERO) {
-            throw new IllegalArgumentException("Weight from should be bigger than price to, "
+            throw new IllegalArgumentException("Weight from should be bigger than weight to, "
                     + "but was " + params);
         }
         return (root, query, criteriaBuilder) ->

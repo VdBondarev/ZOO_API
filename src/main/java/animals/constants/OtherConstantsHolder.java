@@ -9,6 +9,6 @@ public interface OtherConstantsHolder {
     String SEX_COLUMN = "sex";
     String WEIGHT_COLUMN = "weight";
     String COST_COLUMN = "cost";
-    String CATEGORY_ID_COLUMN = "category_id";
+    String CATEGORY_ID_COLUMN = "categoryId";
     String PERCENT = "%";
 }
