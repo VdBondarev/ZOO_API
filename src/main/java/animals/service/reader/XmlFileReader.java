@@ -1,8 +1,10 @@
 package animals.service.reader;
 
-import static animals.constants.ConstantsHolder.SPLIT_XML_LINE_REGEX;
-import static animals.constants.ConstantsHolder.XML;
-import static animals.constants.ConstantsHolder.ZERO;
+import static animals.constants.FilesRelatedConstantsHolder.SPLIT_XML_LINE_REGEX;
+import static animals.constants.FilesRelatedConstantsHolder.XML;
+import static animals.constants.NumbersConstantsHolder.ONE;
+import static animals.constants.NumbersConstantsHolder.REQUIRED_ARRAY_SIZE;
+import static animals.constants.NumbersConstantsHolder.ZERO;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,8 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class XmlFileReader implements FileReader {
-    private static final int VALUE_INDEX = 1;
-    private static final int REQUIRED_SIZE = 5;
 
     @Override
     public List<String[]> readFromFile(MultipartFile file) {
@@ -27,10 +27,10 @@ public class XmlFileReader implements FileReader {
                 if (line.trim().equalsIgnoreCase("<animal>")) {
                     List<String> record = new ArrayList<>();
                     while (!(line = reader.readLine().trim()).equalsIgnoreCase("</animal>")) {
-                        String value = line.split(SPLIT_XML_LINE_REGEX)[VALUE_INDEX];
+                        String value = line.split(SPLIT_XML_LINE_REGEX)[ONE];
                         record.add(value);
                     }
-                    if (record.size() == REQUIRED_SIZE) {
+                    if (record.size() == REQUIRED_ARRAY_SIZE) {
                         records.add(record.toArray(new String[ZERO]));
                     }
                 }

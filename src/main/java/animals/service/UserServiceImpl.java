@@ -1,7 +1,8 @@
 package animals.service;
 
-import static animals.constants.ConstantsHolder.ROLE_ADMIN;
-import static animals.constants.ConstantsHolder.ROLE_USER;
+import static animals.constants.NumbersConstantsHolder.ONE;
+import static animals.constants.OtherConstantsHolder.ROLE_ADMIN;
+import static animals.constants.OtherConstantsHolder.ROLE_USER;
 
 import animals.dto.user.UserRegistrationRequestDto;
 import animals.dto.user.UserResponseDto;
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean isJustUser(User user) {
-        return user.getRoles().size() == 1;
+        return user.getRoles().size() == ONE;
     }
 
     private boolean hasRole(User user, String roleName) {

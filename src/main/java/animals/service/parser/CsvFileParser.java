@@ -1,6 +1,6 @@
 package animals.service.parser;
 
-import static animals.constants.ConstantsHolder.CSV;
+import static animals.constants.FilesRelatedConstantsHolder.CSV;
 
 import animals.model.Animal;
 import animals.service.category.AnimalCategoryStrategy;

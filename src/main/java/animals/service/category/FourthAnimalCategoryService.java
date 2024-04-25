@@ -1,7 +1,7 @@
 package animals.service.category;
 
-import static animals.constants.ConstantsHolder.FOUR;
-import static animals.constants.ConstantsHolder.FOURTH_CATEGORY_RANGE;
+import static animals.constants.NumbersConstantsHolder.FOUR;
+import static animals.constants.NumbersConstantsHolder.FOURTH_CATEGORY_RANGE;
 
 import org.springframework.stereotype.Service;
 

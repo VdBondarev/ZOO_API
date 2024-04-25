@@ -1,7 +1,8 @@
 package animals.service.reader;
 
-import static animals.constants.ConstantsHolder.CSV;
-import static animals.constants.ConstantsHolder.EMPTY_STRING;
+import static animals.constants.FilesRelatedConstantsHolder.CSV;
+import static animals.constants.NumbersConstantsHolder.REQUIRED_ARRAY_SIZE;
+import static animals.constants.OtherConstantsHolder.EMPTY_STRING;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class CsvFileReader implements FileReader {
             CSVReader csvReader = new CSVReader(reader);
             String[] record;
             while ((record = csvReader.readNext()) != null) {
-                if (record.length != 5) {
+                if (record.length != REQUIRED_ARRAY_SIZE) {
                     continue;
                 }
                 if (Arrays.stream(record).toList().contains(EMPTY_STRING)) {

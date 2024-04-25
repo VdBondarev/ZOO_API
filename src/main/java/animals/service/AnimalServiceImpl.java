@@ -1,6 +1,6 @@
 package animals.service;
 
-import static animals.constants.ConstantsHolder.ONE;
+import static animals.constants.NumbersConstantsHolder.ONE;
 
 import animals.dto.animal.AnimalResponseDto;
 import animals.mapper.AnimalMapper;
