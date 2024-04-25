@@ -1,11 +1,11 @@
 package animals.repository.specification.animal;
 
-import static animals.constants.OtherConstantsHolder.CATEGORY_ID_COLUMN;
-import static animals.constants.OtherConstantsHolder.COST_COLUMN;
-import static animals.constants.OtherConstantsHolder.NAME_COLUMN;
-import static animals.constants.OtherConstantsHolder.SEX_COLUMN;
-import static animals.constants.OtherConstantsHolder.TYPE_COLUMN;
-import static animals.constants.OtherConstantsHolder.WEIGHT_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.CATEGORY_ID_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.COST_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.NAME_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.SEX_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.TYPE_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.WEIGHT_COLUMN;
 
 import animals.dto.animal.AnimalSearchParamsRequestDto;
 import animals.model.Animal;

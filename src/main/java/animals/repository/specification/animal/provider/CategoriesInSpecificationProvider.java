@@ -1,6 +1,6 @@
 package animals.repository.specification.animal.provider;
 
-import static animals.constants.OtherConstantsHolder.CATEGORY_ID_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.CATEGORY_ID_COLUMN;
 
 import animals.model.Animal;
 import animals.repository.specification.provider.InSpecificationProvider;

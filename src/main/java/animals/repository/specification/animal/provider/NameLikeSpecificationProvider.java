@@ -1,7 +1,7 @@
 package animals.repository.specification.animal.provider;
 
-import static animals.constants.OtherConstantsHolder.NAME_COLUMN;
-import static animals.constants.OtherConstantsHolder.PERCENT;
+import static animals.constants.CriteriaQueryConstantsHolder.NAME_COLUMN;
+import static animals.constants.CriteriaQueryConstantsHolder.PERCENT;
 
 import animals.model.Animal;
 import animals.repository.specification.provider.LikeSpecificationProvider;

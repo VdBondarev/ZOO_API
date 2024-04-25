@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface AnimalService {
+
     List<AnimalResponseDto> create(MultipartFile file);
 
     AnimalResponseDto getById(Long id);

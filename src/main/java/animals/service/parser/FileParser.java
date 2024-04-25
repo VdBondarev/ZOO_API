@@ -6,6 +6,7 @@ import animals.model.enums.Type;
 import java.util.List;
 
 public interface FileParser {
+
     List<Animal> parse(List<String[]> animalsRecords);
 
     boolean isApplicable(String fileType);

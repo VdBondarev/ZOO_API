@@ -1,9 +1,9 @@
 package animals.repository.specification.animal.provider;
 
+import static animals.constants.CriteriaQueryConstantsHolder.WEIGHT_COLUMN;
 import static animals.constants.NumbersConstantsHolder.ONE;
 import static animals.constants.NumbersConstantsHolder.TWO;
 import static animals.constants.NumbersConstantsHolder.ZERO;
-import static animals.constants.OtherConstantsHolder.WEIGHT_COLUMN;
 
 import animals.model.Animal;
 import animals.repository.specification.provider.BetweenSpecificationProvider;
