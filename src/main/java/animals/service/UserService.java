@@ -1,7 +1,7 @@
 package animals.service;
 
-import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserRegistrationRequestDto;
+import animals.dto.user.UserResponseDto;
 import animals.model.User;
 
 public interface UserService {

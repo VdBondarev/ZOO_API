@@ -1,8 +1,8 @@
 package animals.security;
 
-import static animals.constants.ConstantsHolder.AUTHORIZATION;
-import static animals.constants.ConstantsHolder.BEARER;
-import static animals.constants.ConstantsHolder.TOKEN_START;
+import static animals.constants.SecurityConstantsHolder.AUTHORIZATION;
+import static animals.constants.SecurityConstantsHolder.BEARER;
+import static animals.constants.SecurityConstantsHolder.TOKEN_START;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

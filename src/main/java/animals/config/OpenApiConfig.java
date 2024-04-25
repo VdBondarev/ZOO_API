@@ -1,8 +1,8 @@
 package animals.config;
 
-import static animals.constants.ConstantsHolder.BEARER;
-import static animals.constants.ConstantsHolder.BEARER_AUTH;
-import static animals.constants.ConstantsHolder.JWT;
+import static animals.constants.SecurityConstantsHolder.BEARER;
+import static animals.constants.SecurityConstantsHolder.BEARER_AUTH;
+import static animals.constants.SecurityConstantsHolder.JWT;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

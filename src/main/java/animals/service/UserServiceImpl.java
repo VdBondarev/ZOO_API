@@ -1,13 +1,15 @@
 package animals.service;
 
-import static animals.constants.ConstantsHolder.ROLE_ADMIN;
-import static animals.constants.ConstantsHolder.ROLE_USER;
+import static animals.constants.NumbersConstantsHolder.ONE;
+import static animals.constants.OtherConstantsHolder.ROLE_ADMIN;
+import static animals.constants.OtherConstantsHolder.ROLE_USER;
 
-import animals.dto.UserRegistrationRequestDto;
-import animals.dto.UserResponseDto;
+import animals.dto.user.UserRegistrationRequestDto;
+import animals.dto.user.UserResponseDto;
 import animals.mapper.UserMapper;
 import animals.model.Role;
 import animals.model.User;
+import animals.model.enums.RoleName;
 import animals.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Set;
@@ -44,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto updateUserRole(Long id, String roleName) {
-        Role.RoleName.fromString(roleName); // just a check if role exists
+        RoleName.fromString(roleName); // just a check if role exists
         User user = userRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException(
                         "User with passed id doesn't exist, id: " + id));
@@ -69,7 +71,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean isJustUser(User user) {
-        return user.getRoles().size() == 1;
+        return user.getRoles().size() == ONE;
     }
 
     private boolean hasRole(User user, String roleName) {
@@ -77,6 +79,6 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(Role::getName)
                 .toList()
-                .contains(Role.RoleName.fromString(roleName));
+                .contains(RoleName.fromString(roleName));
     }
 }

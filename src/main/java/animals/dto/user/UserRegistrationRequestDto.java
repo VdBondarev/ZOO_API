@@ -1,4 +1,4 @@
-package animals.dto;
+package animals.dto.user;
 
 import animals.annotation.FieldMatch;
 import animals.annotation.StartsWithCapital;
