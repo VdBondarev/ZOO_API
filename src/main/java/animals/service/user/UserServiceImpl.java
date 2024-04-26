@@ -1,4 +1,4 @@
-package animals.service;
+package animals.service.user;
 
 import static animals.constants.NumbersConstantsHolder.ONE;
 import static animals.constants.OtherConstantsHolder.ROLE_ADMIN;

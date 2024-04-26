@@ -1,4 +1,4 @@
-package animals.service;
+package animals.service.animal;
 
 import animals.dto.animal.AnimalResponseDto;
 import animals.dto.animal.AnimalSearchParamsRequestDto;
@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface AnimalService {
 
-    List<AnimalResponseDto> create(MultipartFile file);
+    List<AnimalResponseDto> upload(MultipartFile file);
 
     AnimalResponseDto getById(Long id);
 

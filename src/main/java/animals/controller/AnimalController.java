@@ -2,9 +2,10 @@ package animals.controller;
 
 import animals.dto.animal.AnimalResponseDto;
 import animals.dto.animal.AnimalSearchParamsRequestDto;
-import animals.service.AnimalService;
+import animals.service.animal.AnimalService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +31,7 @@ public class AnimalController {
     @Operation(summary = "Search animal by params")
     @GetMapping("/search")
     public List<AnimalResponseDto> search(
-            @RequestBody AnimalSearchParamsRequestDto searchParams,
+            @RequestBody @Valid AnimalSearchParamsRequestDto searchParams,
             Pageable pageable) {
         return animalService.search(searchParams, pageable);
     }
