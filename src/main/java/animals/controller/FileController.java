@@ -33,6 +33,6 @@ public class FileController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public List<AnimalResponseDto> create(@RequestParam MultipartFile file) {
-        return animalService.create(file);
+        return animalService.upload(file);
     }
 }

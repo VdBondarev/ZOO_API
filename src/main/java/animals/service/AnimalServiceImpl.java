@@ -32,7 +32,7 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Transactional
     @Override
-    public List<AnimalResponseDto> create(MultipartFile file) {
+    public List<AnimalResponseDto> upload(MultipartFile file) {
         String fileType = getFileType(file);
         FileReader fileReader = readerStrategy.getFileReader(fileType);
         List<String[]> animalsRecords = fileReader.readFromFile(file);
