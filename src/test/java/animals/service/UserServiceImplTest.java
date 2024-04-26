@@ -11,6 +11,7 @@ import animals.model.Role;
 import animals.model.User;
 import animals.model.enums.RoleName;
 import animals.repository.UserRepository;
+import animals.service.user.UserServiceImpl;
 import java.util.Optional;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;

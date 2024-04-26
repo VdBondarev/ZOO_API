@@ -1,1 +1,1 @@
-This file is not supported for reading, it should throw an exception
+This file is not supported for reading and parsing, it should throw an exception

@@ -1,4 +1,4 @@
-package animals.service;
+package animals.service.user;
 
 import animals.dto.user.UserRegistrationRequestDto;
 import animals.dto.user.UserResponseDto;

@@ -1,4 +1,4 @@
-package animals.service;
+package animals.service.animal;
 
 import static animals.constants.NumbersConstantsHolder.ONE;
 

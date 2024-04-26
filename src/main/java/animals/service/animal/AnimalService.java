@@ -1,4 +1,4 @@
-package animals.service;
+package animals.service.animal;
 
 import animals.dto.animal.AnimalResponseDto;
 import animals.dto.animal.AnimalSearchParamsRequestDto;

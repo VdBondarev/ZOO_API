@@ -5,7 +5,7 @@ import animals.dto.user.UserLoginResponseDto;
 import animals.dto.user.UserRegistrationRequestDto;
 import animals.dto.user.UserResponseDto;
 import animals.security.AuthenticationService;
-import animals.service.UserService;
+import animals.service.user.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
