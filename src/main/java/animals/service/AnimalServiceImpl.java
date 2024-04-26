@@ -57,7 +57,7 @@ public class AnimalServiceImpl implements AnimalService {
     public List<AnimalResponseDto> search(
             AnimalSearchParamsRequestDto searchParams, Pageable pageable) {
         if (isEmpty(searchParams)) {
-            throw new IllegalArgumentException("Searching should be done by at least 1 param.");
+            throw new IllegalArgumentException("Searching should be done by at least 1 param");
         }
         return animalRepository.findAll(
                 specificationBuilder.build(searchParams), pageable)
@@ -67,12 +67,13 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     private boolean isEmpty(AnimalSearchParamsRequestDto searchParams) {
-        return (searchParams.name() == null || searchParams.name().isEmpty())
+        return searchParams == null
+               || ((searchParams.name() == null || searchParams.name().isEmpty())
                 && (searchParams.sex() == null || searchParams.sex().isEmpty())
                 && (searchParams.type() == null || searchParams.type().isEmpty())
                 && (searchParams.categoriesIds() == null)
                 && (searchParams.cost() == null)
-                && (searchParams.weight() == null);
+                && (searchParams.weight() == null));
     }
 
     private String getFileType(MultipartFile file) {

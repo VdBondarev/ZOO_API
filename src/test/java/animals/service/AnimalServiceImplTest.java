@@ -258,6 +258,27 @@ class AnimalServiceImplTest {
         assertEquals(expected, actualList.get(0));
     }
 
+    @Test
+    @DisplayName("Verify that search() throws an exception when passing non-valid params")
+    void search_NullPassedParams_ThrowsException() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> animalService.search(null, PageRequest.of(0, 5)));
+
+        String expected = "Searching should be done by at least 1 param";
+        String actual = exception.getMessage();
+
+        assertEquals(expected, actual);
+
+        exception = assertThrows(IllegalArgumentException.class, () -> animalService.search(
+                createAnimalSearchParametersDto(
+                        null, null, null, null, null, null
+                ), PageRequest.of(0, 5)));
+
+        actual = exception.getMessage();
+
+        assertEquals(expected, actual);
+    }
+
     private AnimalSearchParamsRequestDto createAnimalSearchParametersDto(
             String name, String type, String sex,
             List<Integer> weight, List<Integer> cost, List<Long> categoriesIds) {
@@ -295,19 +316,3 @@ class AnimalServiceImplTest {
                 .setCost(cost);
     }
 }
-
-/**
- *
- *     @Override
- *     public List<AnimalResponseDto> search(
- *             AnimalSearchParamsRequestDto searchParams, Pageable pageable) {
- *         if (isEmpty(searchParams)) {
- *             throw new IllegalArgumentException("Searching should be done by at least 1 param.");
- *         }
- *         return animalRepository.findAll(
- *                 specificationBuilder.build(searchParams), pageable)
- *                 .stream()
- *                 .map(animalMapper::toResponseDto)
- *                 .collect(Collectors.toList());
- *     }
- */
