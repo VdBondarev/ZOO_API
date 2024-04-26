@@ -1,5 +1,10 @@
 package animals.exception;
 
+import static animals.constants.OtherConstantsHolder.ERRORS;
+import static animals.constants.OtherConstantsHolder.MESSAGE;
+import static animals.constants.OtherConstantsHolder.STATUS;
+import static animals.constants.OtherConstantsHolder.TIME_STAMP;
+
 import jakarta.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -28,13 +33,13 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             WebRequest request
     ) {
         Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", status);
+        body.put(TIME_STAMP, LocalDateTime.now());
+        body.put(STATUS, status);
         List<String> errors = ex.getBindingResult().getAllErrors()
                 .stream()
                 .map(this::getErrorMessage)
                 .toList();
-        body.put("errors", errors);
+        body.put(ERRORS, errors);
         return new ResponseEntity<>(body, headers, status);
     }
 
@@ -63,9 +68,9 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
     private Map<String, Object> getBody(Exception ex, HttpStatus status) {
         Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", status);
-        body.put("message", ex.getMessage());
+        body.put(TIME_STAMP, LocalDateTime.now());
+        body.put(STATUS, status);
+        body.put(MESSAGE, ex.getMessage());
         return body;
     }
 }
