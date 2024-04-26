@@ -32,7 +32,7 @@ public class FileController {
     @PostMapping("/upload")
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    public List<AnimalResponseDto> create(@RequestParam MultipartFile file) {
+    public List<AnimalResponseDto> upload(@RequestParam MultipartFile file) {
         return animalService.upload(file);
     }
 }
