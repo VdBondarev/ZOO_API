@@ -8,4 +8,6 @@ public interface LinksHolder {
     String WORD_FILE_PATH = "src/test/java/files/nonvalid.word";
     String ADD_ANIMALS_TO_ANIMALS_FILE_PATH =
             "classpath:database/add-animals-to-database.sql";
+    String REMOVE_ALL_USERS_FILE_PATH =
+            "classpath:database/remove-all-users-from-users-table.sql";
 }
