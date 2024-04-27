@@ -55,8 +55,8 @@ To set up and run the project locally, follow these steps:
 ## Roles explanation
 
 - There are only 2 roles of users available: **USER and ADMIN roles**.
-- User has access to such endpoints as searching animals, getting an animal by id etc.
-- But user doesn't get to upload a file for inserting animals to a database. **(Remember it)**
+- User has access to such endpoints as searching zoo, getting an animal by id etc.
+- But user doesn't get to upload a file for inserting zoo to a database. **(Remember it)**
 
 ## Users managing
 
