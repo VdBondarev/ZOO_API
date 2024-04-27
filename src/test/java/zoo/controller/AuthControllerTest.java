@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static zoo.holder.LinksHolder.ADD_USER_TO_DATABASE_FILE_PATH;
 import static zoo.holder.LinksHolder.REMOVE_ALL_USERS_FILE_PATH;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -71,6 +72,46 @@ class AuthControllerTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("""
+            Verify that registration endpoint works as expected when passing a registered email
+            """)
+    @Sql(
+            scripts = { ADD_USER_TO_DATABASE_FILE_PATH },
+            executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD
+    )
+    @Sql(
+            scripts = { REMOVE_ALL_USERS_FILE_PATH },
+            executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD
+    )
+    void register_AlreadyExistingEmailIsPassed_Failure() throws Exception {
+        UserRegistrationRequestDto requestDto = new UserRegistrationRequestDto(
+                "admin@example.com",
+                "Test",
+                "Test",
+                "12345678",
+                "12345678");
+
+        String content = objectMapper.writeValueAsString(requestDto);
+
+        MvcResult result = mockMvc.perform(
+                        post("/auth/register")
+                                .content(content)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+        String expectedMessage = """
+                User with passed email already registered
+                Try another one
+                """;
+
+        String actualMessage = result.getResolvedException().getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
     private UserResponseDto createUserResponseDto(Long id, UserRegistrationRequestDto requestDto) {
         return new UserResponseDto(
                 id,
@@ -79,29 +120,3 @@ class AuthControllerTest {
                 requestDto.lastName());
     }
 }
-
-/**
- * @Tag(name = "Authentication controller", description = "Endpoints for login and registration")
- * @RestController
- * @RequiredArgsConstructor
- * @RequestMapping("/auth")
- * public class AuthController {
- *     private final AuthenticationService authenticationService;
- *     private final UserService userService;
- *
- *     @Operation(summary = "Login for signed-up users only")
- *     @GetMapping("/login")
- *     public UserLoginResponseDto login(
- *             @RequestBody @Valid UserLoginRequestDto requestDto) {
- *         return authenticationService.login(requestDto);
- *     }
- *
- *     @Operation(summary = "Registration for any user")
- *     @PostMapping("/register")
- *     @ResponseStatus(HttpStatus.CREATED)
- *     public UserResponseDto register(
- *             @RequestBody @Valid UserRegistrationRequestDto requestDto) {
- *         return userService.register(requestDto);
- *     }
- * }
- */

@@ -10,4 +10,6 @@ public interface LinksHolder {
             "classpath:database/add-animals-to-database.sql";
     String REMOVE_ALL_USERS_FILE_PATH =
             "classpath:database/remove-all-users-from-users-table.sql";
+    String ADD_USER_TO_DATABASE_FILE_PATH =
+            "classpath:database/insert-user-to-database.sql";
 }
